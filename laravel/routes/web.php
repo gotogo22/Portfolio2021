@@ -21,9 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware'=> 'auth'], function (){
-    Route::resource('companies', 'CompanyController@index');
+    Route::resource('companies', 'CompanyController');
+    Route::resource('companies', 'CompanyController@new');
 });
 
+Route::get('home', 'HomeController@index')->name('home');
 
 // Route::group('prefix' => 'custemer', 'middleware'=> 'auth'], function (){
 //     Route::get('index', 'CustemerController@index')->name('custemer.index');
@@ -33,9 +35,7 @@ Route::group(['middleware'=> 'auth'], function (){
 //Rest
 // Route::resource('custemers', 'CustemerController');
 
-Route::get('home', 'HomeController@index')->name('home');
-
-Route::resource('companies', 'CompanyController');
+// Route::resource('companies', 'CompanyController');
 
 // Route::resource('home', 'CompanyController');
 
